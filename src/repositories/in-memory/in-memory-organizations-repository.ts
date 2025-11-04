@@ -1,7 +1,6 @@
 import { Prisma, type Organization } from "@prisma/client";
 import type { OrganizationsRepository } from "../organizations-repository";
 import { randomUUID } from "node:crypto";
-import { number } from "zod";
 
 export class InMemoryOrganizationsRepository
   implements OrganizationsRepository
@@ -40,6 +39,7 @@ export class InMemoryOrganizationsRepository
       address: data.address,
       number: data.number,
       complement: data.complement || null,
+      phone: data.phone,
       password_hash: data.password_hash,
       createdAt: new Date(),
     };

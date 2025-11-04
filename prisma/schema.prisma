@@ -23,6 +23,7 @@ model Organization {
   address       String
   number        String
   complement    String?
+  phone         String
   password_hash String
   createdAt     DateTime @default(now())
 
@@ -43,13 +44,15 @@ model Pet {
   energyLevel Int
   independenceLevel Int
   environmentSize String
-  adoptionRequirements String[]
+  adoptionRequirements String[] @default([])
   photos      String[] @default([])
 
   createdAt   DateTime @default(now())
 
   Organization Organization @relation(fields: [orgId], references: [id])
   orgId       String
+
+  city        String // copied from Organization to avoid joins in queries
 
   @@map("pets")
 }
