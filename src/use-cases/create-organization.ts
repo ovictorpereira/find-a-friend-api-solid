@@ -3,7 +3,7 @@ import { hash } from "bcryptjs";
 import { OrganizationAlreadyExistsError } from "./errors/organization-already-exists-error.ts";
 import type { Organization } from "@prisma/client";
 
-interface OrganizationUseCaseRequest {
+interface CreateOrganizationUseCaseRequest {
   name: string;
   email: string;
   zipcode: string;
@@ -16,7 +16,7 @@ interface OrganizationUseCaseRequest {
   password: string;
 }
 
-interface OrganizationUseCaseResponse {
+interface CreateOrganizationUseCaseResponse {
   organization: Organization;
 }
 
@@ -36,7 +36,7 @@ export class CreateOrganizationUseCase {
     complement,
     phone,
     password,
-  }: OrganizationUseCaseRequest): Promise<OrganizationUseCaseResponse> {
+  }: CreateOrganizationUseCaseRequest): Promise<CreateOrganizationUseCaseResponse> {
     const orgAlreadyExists = await this.organizationsRepository.findByEmail(
       email
     );
