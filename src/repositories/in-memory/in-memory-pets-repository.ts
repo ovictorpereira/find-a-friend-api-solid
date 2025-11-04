@@ -1,14 +1,9 @@
 import { Prisma, type Pet } from "@prisma/client";
-import type { InMemoryOrganizationsRepository } from "./in-memory-organizations-repository";
-import type { PetsRepository } from "../pets-repository";
+import type { PetsRepository } from "../pets-repository.ts";
 import { randomUUID } from "node:crypto";
 
 export class InMemoryPetsRepository implements PetsRepository {
   public items: Pet[] = [];
-
-  constructor(
-    private organizationsRepository: InMemoryOrganizationsRepository
-  ) {}
 
   async findById(petId: string) {
     const pet = this.items.find((pet) => pet.id === petId);
@@ -42,6 +37,7 @@ export class InMemoryPetsRepository implements PetsRepository {
       photos: Array.isArray(data.photos) ? data.photos : [],
       createdAt: new Date(),
       orgId: data.orgId,
+      city: data.city,
     };
 
     this.items.push(pet);

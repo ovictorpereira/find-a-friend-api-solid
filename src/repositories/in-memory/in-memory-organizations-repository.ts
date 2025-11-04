@@ -1,5 +1,5 @@
 import { Prisma, type Organization } from "@prisma/client";
-import type { OrganizationsRepository } from "../organizations-repository";
+import type { OrganizationsRepository } from "../organizations-repository.ts";
 import { randomUUID } from "node:crypto";
 
 export class InMemoryOrganizationsRepository
