@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node --watch src/server.ts"
+    "dev": "node --watch src/server.ts",
+    "test": "vitest run"
   },
   "keywords": [],
   "author": "",
