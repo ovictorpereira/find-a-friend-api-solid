@@ -1,12 +1,12 @@
 
 ### Create a new organization
-POST /orgs/ HTTP/1.1
+POST /org/ HTTP/1.1
 Host: localhost:3333
 Content-Type: application/json
 
 {
     "name": "Sample Organization",
-    "email": "sample26@example.com",
+    "email": "sample263@example.com",
     "zipcode": "12345678",
     "city": "Sample City",
     "state": "Sample State",

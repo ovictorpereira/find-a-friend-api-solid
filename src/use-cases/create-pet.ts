@@ -24,9 +24,11 @@ interface CreatePetUseCaseResponse {
 }
 
 export class CreatePetUseCase {
+  private petsRepository: PetsRepository;
+  private organizationsRepository: OrganizationsRepository;
   constructor(
-    private petsRepository: PetsRepository,
-    private organizationsRepository: OrganizationsRepository
+    petsRepository: PetsRepository,
+    organizationsRepository: OrganizationsRepository
   ) {
     this.petsRepository = petsRepository;
     this.organizationsRepository = organizationsRepository;

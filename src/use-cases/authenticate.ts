@@ -13,7 +13,8 @@ interface AuthenticateUseCaseResponse {
 }
 
 export class AuthenticateUseCase {
-  constructor(private organizationsRepository: OrganizationsRepository) {
+  private organizationsRepository: OrganizationsRepository;
+  constructor(organizationsRepository: OrganizationsRepository) {
     this.organizationsRepository = organizationsRepository;
   }
 

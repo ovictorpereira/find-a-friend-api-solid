@@ -1,7 +1,7 @@
 import type { FastifyRequest, FastifyReply } from "fastify";
 import { z } from "zod";
 import { makeCreateOrganizationUseCase } from "../../../use-cases/factories/make-create-organization-use-case.ts";
-import { UserAlreadyExistsError } from "../../../use-cases/errors/user-already-exists-error.ts";
+import { OrganizationAlreadyExistsError } from "../../../use-cases/errors/organization-already-exists-error.ts";
 
 export async function createOrganizationRoute(
   request: FastifyRequest,
@@ -25,11 +25,10 @@ export async function createOrganizationRoute(
   try {
     const createOrganizationUseCase = makeCreateOrganizationUseCase();
 
-    const { organization } = await createOrganizationUseCase.execute(body);
-
-    return reply.status(201).send(organization);
+    await createOrganizationUseCase.execute(body);
+    return reply.status(201).send();
   } catch (err) {
-    if (err instanceof UserAlreadyExistsError) {
+    if (err instanceof OrganizationAlreadyExistsError) {
       return reply.status(409).send({ message: err.message });
     }
     throw err;

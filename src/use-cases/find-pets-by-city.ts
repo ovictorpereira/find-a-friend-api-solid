@@ -1,3 +1,4 @@
+import { th } from "zod/locales";
 import type { PetsRepository } from "../repositories/pets-repository.ts";
 import type { Pet } from "@prisma/client";
 
@@ -19,7 +20,10 @@ interface FindPetsByCityUseCaseResponse {
 }
 
 export class FindPetsByCityUseCase {
-  constructor(private petsRepository: PetsRepository) {}
+  private petsRepository: PetsRepository;
+  constructor(petsRepository: PetsRepository) {
+    this.petsRepository = petsRepository;
+  }
 
   async execute(
     payload: FindPetsByCityUseCaseRequest

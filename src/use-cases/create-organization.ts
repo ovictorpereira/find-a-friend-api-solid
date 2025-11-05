@@ -21,7 +21,8 @@ interface CreateOrganizationUseCaseResponse {
 }
 
 export class CreateOrganizationUseCase {
-  constructor(private organizationsRepository: OrganizationsRepository) {
+  private organizationsRepository: OrganizationsRepository;
+  constructor(organizationsRepository: OrganizationsRepository) {
     this.organizationsRepository = organizationsRepository;
   }
 
