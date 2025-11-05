@@ -1,0 +1,36 @@
+
+### Create a new organization
+POST /orgs/ HTTP/1.1
+Host: localhost:3333
+Content-Type: application/json
+
+{
+    "name": "Sample Organization",
+    "email": "sample26@example.com",
+    "zipcode": "12345678",
+    "city": "Sample City",
+    "state": "Sample State",
+    "address": "123 Sample St",
+    "number": "123",
+    "complement": "Apt 456",
+    "phone": "1234567890",
+    "password": "123456"
+}
+
+
+### Authenticate user
+POST /sessions HTTP/1.1
+Host: localhost:3333
+Content-Type: application/json
+
+{
+    "email": "sample6@example.com",
+    "password": "123456"
+}
+
+
+### Profile retrieval
+GET /me HTTP/1.1
+Host: localhost:3333
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjYmQ5NGIzYy0xZTYyLTQ4ZjEtODQyYS1iYzU0NzYxNjc2Y2IiLCJpYXQiOjE3NjEzMzU3MDJ9.762mD8vrbELrA7yMVHrZpi-GPIyTNwyx3k95Vq7nKzU
+

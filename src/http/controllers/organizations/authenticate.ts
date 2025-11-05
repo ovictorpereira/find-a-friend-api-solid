@@ -8,7 +8,7 @@ const authSchema = z.object({
   password: z.string().min(6).max(100),
 });
 
-export async function authenticate(
+export async function authenticateRoute(
   request: FastifyRequest,
   reply: FastifyReply
 ) {

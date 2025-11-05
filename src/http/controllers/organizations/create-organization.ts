@@ -3,7 +3,7 @@ import { z } from "zod";
 import { makeCreateOrganizationUseCase } from "../../../use-cases/factories/make-create-organization-use-case.ts";
 import { UserAlreadyExistsError } from "../../../use-cases/errors/user-already-exists-error.ts";
 
-export async function createOrganization(
+export async function createOrganizationRoute(
   request: FastifyRequest,
   reply: FastifyReply
 ) {

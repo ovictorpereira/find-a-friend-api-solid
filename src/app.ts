@@ -19,7 +19,7 @@ app.register(fastifyJwt, {
 
 app.register(fastifyCookie);
 
-app.register(organizationRoutes);
+app.register(organizationRoutes, { prefix: "/org" });
 
 app.setErrorHandler(function (error, _, reply) {
   if (error instanceof ZodError) {
