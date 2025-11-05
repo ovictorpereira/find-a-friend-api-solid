@@ -30,6 +30,7 @@ model Organization {
   Pets        Pet[]
 
   @@map("organizations")
+  @@index([city])
 }
 
 model Pet {
