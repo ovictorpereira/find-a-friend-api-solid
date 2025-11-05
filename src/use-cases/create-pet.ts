@@ -17,7 +17,6 @@ interface CreatePetUseCaseRequest {
   adoptionRequirements: string[];
   photos: string[];
   orgId: string;
-  city: string;
 }
 
 interface CreatePetUseCaseResponse {

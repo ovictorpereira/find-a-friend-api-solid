@@ -1,23 +1,23 @@
 import { expect, describe, it, beforeEach } from "vitest";
-import { CreatePetUseCase } from "./create-pet.ts";
+import { FindPetsByCityUseCase } from "./find-pets-by-city.ts";
 import { InMemoryOrganizationsRepository } from "../repositories/in-memory/in-memory-organizations-repository.ts";
 import { InMemoryPetsRepository } from "../repositories/in-memory/in-memory-pets-repository.ts";
 import { hash } from "bcryptjs";
 
 let organizationsRepository: InMemoryOrganizationsRepository;
 let petsRepository: InMemoryPetsRepository;
-let sut: CreatePetUseCase;
+let sut: FindPetsByCityUseCase;
 
-describe("Create Pet Use Case", () => {
+describe("Find Pets by City Use Case", () => {
   beforeEach(() => {
     organizationsRepository = new InMemoryOrganizationsRepository();
     petsRepository = new InMemoryPetsRepository(organizationsRepository);
 
-    sut = new CreatePetUseCase(petsRepository, organizationsRepository);
+    sut = new FindPetsByCityUseCase(petsRepository);
   });
 
-  it("should be able to create a new pet", async () => {
-    const organization = await organizationsRepository.create({
+  it("should be able to find pets by city", async () => {
+    const orgRio = await organizationsRepository.create({
       name: "Sample Organization",
       email: "sample@example.com",
       password_hash: await hash("123456", 6),
@@ -30,7 +30,7 @@ describe("Create Pet Use Case", () => {
       phone: "21999999999",
     });
 
-    const { pet } = await sut.execute({
+    await petsRepository.create({
       species: "Dog",
       name: "Rex",
       gender: "Male",
@@ -43,10 +43,12 @@ describe("Create Pet Use Case", () => {
       environmentSize: "Large",
       adoptionRequirements: ["Fenced yard", "Regular vet visits"],
       photos: ["photo1.jpg", "photo2.jpg"],
-      orgId: organization.id,
+      orgId: orgRio.id,
     });
 
-    expect(pet.id).toEqual(expect.any(String));
-    expect(pet.name).toEqual("Rex");
+    const { pets } = await sut.execute({ city: "Rio de Janeiro" });
+
+    expect(pets).toHaveLength(1);
+    expect(pets[0].name).toEqual("Rex");
   });
 });

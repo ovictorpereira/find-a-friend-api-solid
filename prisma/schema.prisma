@@ -52,7 +52,5 @@ model Pet {
   Organization Organization @relation(fields: [orgId], references: [id])
   orgId       String
 
-  city        String // copied from Organization to avoid joins in queries
-
   @@map("pets")
 }
