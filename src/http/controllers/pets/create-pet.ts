@@ -1,6 +1,15 @@
 import type { FastifyRequest, FastifyReply } from "fastify";
 import { z } from "zod";
 import { Species } from "@prisma/client";
+
+declare module "fastify" {
+  export interface FastifyRequest {
+    user: {
+      sub: string;
+    };
+  }
+}
+
 import { makeCreatePetUseCase } from "../../../use-cases/factories/make-create-pet-use-case.ts";
 import { ResourceNotFoundError } from "../../../use-cases/errors/resource-not-found-error.ts";
 

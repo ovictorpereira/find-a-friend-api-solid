@@ -31,7 +31,7 @@ describe("Find Pets by City Use Case", () => {
     });
 
     await petsRepository.create({
-      species: "Dog",
+      species: "DOG",
       name: "Rex",
       gender: "Male",
       color: "Brown",
@@ -67,7 +67,7 @@ describe("Find Pets by City Use Case", () => {
     });
 
     await petsRepository.create({
-      species: "Dog",
+      species: "DOG",
       name: "Rex",
       gender: "Male",
       color: "Brown",
@@ -83,7 +83,7 @@ describe("Find Pets by City Use Case", () => {
     });
 
     await petsRepository.create({
-      species: "Cat",
+      species: "CAT",
       name: "Mycat",
       gender: "Female",
       color: "Brown",
@@ -100,7 +100,7 @@ describe("Find Pets by City Use Case", () => {
 
     const { pets } = await sut.execute({
       city: "Rio de Janeiro",
-      species: "Cat",
+      species: "CAT",
     });
 
     expect(pets).toHaveLength(1);
