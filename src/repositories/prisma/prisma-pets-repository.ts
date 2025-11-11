@@ -1,9 +1,9 @@
 import { prisma } from "../../lib/prisma.ts";
-import { Pet, Prisma } from "@prisma/client";
+import { Prisma } from "@prisma/client";
 import type { PetFilters, PetsRepository } from "../pets-repository.ts";
 
 export class PrismaPetsRepository implements PetsRepository {
-  async findById(petId: string): Promise<Pet | null> {
+  async findById(petId: string) {
     const pet = await prisma.pet.findUnique({
       where: {
         id: petId,
@@ -12,14 +12,14 @@ export class PrismaPetsRepository implements PetsRepository {
     return pet;
   }
 
-  async findByCity(filters: PetFilters): Promise<Pet[]> {
+  async findByCity(filters: PetFilters) {
     const { city, ...petFilters } = filters;
 
     const pets = await prisma.pet.findMany({
       where: {
         ...petFilters,
         Organization: {
-          city: "São Paulo",
+          city,
         },
       },
       include: {
@@ -29,7 +29,7 @@ export class PrismaPetsRepository implements PetsRepository {
     return pets;
   }
 
-  async create(data: Prisma.PetUncheckedCreateInput): Promise<Pet> {
+  async create(data: Prisma.PetUncheckedCreateInput) {
     const pet = await prisma.pet.create({
       data,
     });

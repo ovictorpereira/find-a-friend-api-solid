@@ -1,8 +1,9 @@
 import { Prisma, type Pet } from "@prisma/client";
+import { Species } from "@prisma/client";
 
 export interface PetFilters {
   city: string;
-  species?: string;
+  species?: Species;
   gender?: string;
   color?: string;
   about?: string;

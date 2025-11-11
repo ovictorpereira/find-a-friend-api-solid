@@ -1,10 +1,10 @@
 import { type PetsRepository } from "../repositories/pets-repository.ts";
 import { type OrganizationsRepository } from "../repositories/organizations-repository.ts";
 import { ResourceNotFoundError } from "./errors/resource-not-found-error.ts";
-import type { Pet } from "@prisma/client";
+import type { Pet, Species } from "@prisma/client";
 
 interface CreatePetUseCaseRequest {
-  species: string;
+  species: Species;
   name: string;
   gender: string;
   color: string;

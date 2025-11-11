@@ -1,10 +1,9 @@
-import { th } from "zod/locales";
 import type { PetsRepository } from "../repositories/pets-repository.ts";
-import type { Pet } from "@prisma/client";
+import type { Pet, Species } from "@prisma/client";
 
 interface FindPetsByCityUseCaseRequest {
   city: string;
-  species?: string;
+  species?: Species;
   gender?: string;
   color?: string;
   about?: string;
