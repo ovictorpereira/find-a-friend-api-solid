@@ -32,7 +32,7 @@ Content-Type: application/json
 ### Profile retrieval
 GET /org/me HTTP/1.1
 Host: localhost:3333
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkMWE3YjkzMS00MDUxLTQ0MzEtODc4MS0xMzFiYjU4YjRjYzYiLCJpYXQiOjE3NjI4ODIyNTIsImV4cCI6MTc2Mjg4Mjg1Mn0.Uu-NwaaJw8ZsGJboRnTzETnCE92ZAICVLoNaADRWLWM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkMWE3YjkzMS00MDUxLTQ0MzEtODc4MS0xMzFiYjU4YjRjYzYiLCJpYXQiOjE3NjI4ODMwNTMsImV4cCI6MTc2Mjg4MzY1M30.88z4hsKBh0yWAbdJXDCMtSdtNfLA9ar9lLDsLXM_UwY
 
 
 ### Create a new pet to an organization
@@ -53,4 +53,7 @@ Content-Type: application/json
     "environmentSize": "Amplo"
 }
 
+### Find pets by city
+GET http://localhost:3333/pets?city=Sample%20City&species=DOG
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkMWE3YjkzMS00MDUxLTQ0MzEtODc4MS0xMzFiYjU4YjRjYzYiLCJpYXQiOjE3NjI4ODQzMzgsImV4cCI6MTc2Mjg4NDkzOH0.RBNn5QmNOUn_am1iSYoUt1-1mneGyQV9wMnbDCXHhs8
 

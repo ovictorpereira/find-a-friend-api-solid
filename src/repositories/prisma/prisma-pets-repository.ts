@@ -22,9 +22,6 @@ export class PrismaPetsRepository implements PetsRepository {
           city,
         },
       },
-      include: {
-        Organization: true,
-      },
     });
     return pets;
   }

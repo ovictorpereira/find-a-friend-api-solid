@@ -2,9 +2,9 @@ import type { FastifyRequest, FastifyReply } from "fastify";
 import { z } from "zod";
 import { Species } from "@prisma/client";
 import { ResourceNotFoundError } from "../../../use-cases/errors/resource-not-found-error.ts";
-import { makeFindPetsByCityUseCase } from "../../../use-cases/factories/make-find-pets-by-city-use-case";
+import { makeFindPetsByCityUseCase } from "../../../use-cases/factories/make-find-pets-by-city-use-case.ts";
 
-export async function findPetByCityRoute(
+export async function findPetsByCityRoute(
   request: FastifyRequest,
   reply: FastifyReply
 ) {
@@ -21,13 +21,13 @@ export async function findPetByCityRoute(
     environmentSize: z.string().optional(),
   });
 
-  const body = createPetBodySchema.parse(request.body);
+  const query = createPetBodySchema.parse(request.query);
 
   try {
     const findPetsByCityUseCase = makeFindPetsByCityUseCase();
 
-    await findPetsByCityUseCase.execute(body);
-    return reply.status(201).send();
+    const pets = await findPetsByCityUseCase.execute(query);
+    return reply.status(200).send(pets);
   } catch (err) {
     if (err instanceof ResourceNotFoundError) {
       return reply.status(404).send({ message: err.message });
