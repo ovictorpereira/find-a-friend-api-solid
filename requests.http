@@ -32,12 +32,12 @@ Content-Type: application/json
 ### Profile retrieval
 GET /org/me HTTP/1.1
 Host: localhost:3333
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkMWE3YjkzMS00MDUxLTQ0MzEtODc4MS0xMzFiYjU4YjRjYzYiLCJpYXQiOjE3NjI4ODMwNTMsImV4cCI6MTc2Mjg4MzY1M30.88z4hsKBh0yWAbdJXDCMtSdtNfLA9ar9lLDsLXM_UwY
+Authorization: Bearer 
 
 
 ### Create a new pet to an organization
 POST http://localhost:3333/pets
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkMWE3YjkzMS00MDUxLTQ0MzEtODc4MS0xMzFiYjU4YjRjYzYiLCJpYXQiOjE3NjI4ODMwNTMsImV4cCI6MTc2Mjg4MzY1M30.88z4hsKBh0yWAbdJXDCMtSdtNfLA9ar9lLDsLXM_UwY
+Authorization: Bearer 
 Content-Type: application/json
 
 {
@@ -55,10 +55,10 @@ Content-Type: application/json
 
 ### Find pets by city
 GET http://localhost:3333/pets?city=Sample%20City&species=DOG
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkMWE3YjkzMS00MDUxLTQ0MzEtODc4MS0xMzFiYjU4YjRjYzYiLCJpYXQiOjE3NjI4ODYxNTUsImV4cCI6MTc2Mjg4Njc1NX0.vxrNEngAnvkZkMsdE7QY5XalrzwgT098Dusp2EeRPo8
+Authorization: Bearer 
 
 
 ### Find pet by id
 GET http://localhost:3333/pets/unique/c17386db-b5a1-4b5f-806f-009272aabfe6
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkMWE3YjkzMS00MDUxLTQ0MzEtODc4MS0xMzFiYjU4YjRjYzYiLCJpYXQiOjE3NjI4ODYxNTUsImV4cCI6MTc2Mjg4Njc1NX0.vxrNEngAnvkZkMsdE7QY5XalrzwgT098Dusp2EeRPo8
+Authorization: Bearer 
 
